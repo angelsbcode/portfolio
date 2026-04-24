@@ -5,6 +5,9 @@ import Header from '../components/Header.astro';
 import Nav from '../components/Nav.astro';
 import Section from '../components/Section.astro';
 import Footer from '../components/Footer.astro';
+
+import { Image } from 'astro:assets';
+import fotoIntro from '../assets/images/pic01.jpg';
 ---
 
 <BaseLayout title="Stellar by HTML5 UP - Astro Version">
@@ -31,7 +34,11 @@ import Footer from '../components/Footer.astro';
             </ul>
           </div>
           <div class="w-full md:w-1/3 flex justify-center">
-            <img src="/images/pic01.jpg" alt="Intro" class="w-64 h-64 object-cover rounded-full border-4 border-slate-700" />
+            <Image 
+              src={fotoIntro} 
+              alt="Intro" 
+              class="w-64 h-64 object-cover rounded-full border-4 border-slate-700 shadow-lg" 
+            />
           </div>
         </div>
       </Section>
@@ -42,22 +49,30 @@ import Footer from '../components/Footer.astro';
         </header>
         
         <ul class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          <li class="p-6 bg-slate-750 rounded-lg">
-            <span class="inline-block w-24 h-24 bg-blue-500 rounded-full flex items-center justify-center text-4xl text-white mb-6 mx-auto"><i class="fas fa-code"></i></span>
-            <h3 class="text-xl font-bold text-white mb-4">Ipsum consequat</h3>
-            <p class="text-sm leading-relaxed">Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.</p>
-          </li>
-          <li class="p-6 bg-slate-750 rounded-lg">
-            <span class="inline-block w-24 h-24 bg-purple-500 rounded-full flex items-center justify-center text-4xl text-white mb-6 mx-auto"><i class="fas fa-copy"></i></span>
-            <h3 class="text-xl font-bold text-white mb-4">Amed sed feugiat</h3>
-            <p class="text-sm leading-relaxed">Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.</p>
-          </li>
-          <li class="p-6 bg-slate-750 rounded-lg">
-            <span class="inline-block w-24 h-24 bg-pink-500 rounded-full flex items-center justify-center text-4xl text-white mb-6 mx-auto"><i class="fas fa-gem"></i></span>
-            <h3 class="text-xl font-bold text-white mb-4">Dolor nullam</h3>
-            <p class="text-sm leading-relaxed">Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.</p>
-          </li>
-        </ul>
+			<li class="p-6">
+				<span class="inline-flex items-center justify-center w-40 h-40 bg-blue-500 rounded-full mb-6 mx-auto border-[1px] border-slate-700">
+				<i class="fas fa-code text-6xl text-white leading-none"></i>
+				</span>
+				<h3 class="text-xl font-bold text-white mb-4">Ipsum consequat</h3>
+				<p class="text-sm leading-relaxed">Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.</p>
+			</li>
+
+			<li class="p-6">
+				<span class="inline-flex items-center justify-center w-40 h-40 bg-purple-500 rounded-full mb-6 mx-auto border-[1px] border-slate-700">
+				<i class="fas fa-copy text-6xl text-white leading-none"></i>
+				</span>
+				<h3 class="text-xl font-bold text-white mb-4">Amed sed feugiat</h3>
+				<p class="text-sm leading-relaxed">Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.</p>
+			</li>
+
+			<li class="p-6">
+				<span class="inline-flex items-center justify-center w-40 h-40 bg-pink-500 rounded-full mb-6 mx-auto border-[1px] border-slate-700">
+				<i class="fas fa-gem text-6xl text-white leading-none"></i>
+				</span>
+				<h3 class="text-xl font-bold text-white mb-4">Dolor nullam</h3>
+				<p class="text-sm leading-relaxed">Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.</p>
+			</li>
+		</ul>
         
         <footer class="flex justify-center">
           <a href="#" class="px-6 py-3 border border-slate-600 rounded hover:bg-slate-700 hover:text-white transition-colors">Learn More</a>
