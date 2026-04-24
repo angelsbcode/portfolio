@@ -1,13 +1,38 @@
 ---
 import logoStellar from '../assets/logos/logo.svg';
 ---
-<header id="header" class="text-center py-20">
-  <span class="inline-block w-20 mb-4">
-    <img src={logoStellar.src} alt="Logo" class="w-full" />
+<header id="header" class="text-center py-16 flex flex-col items-center justify-center text-white">
+  <span class="inline-block w-24 mb-6 anim-fade-in">
+    <img src={logoStellar.src} alt="Logo" class="w-full drop-shadow-md" />
   </span>
-  <h1 class="text-5xl font-bold">Stellar</h1>
-  <p class="text-slate-400 mt-4">
-    Just another free, fully responsive site template built by <a href="#" class="underline">@ajlkn</a>.
-	<br />Pero modificado y pasado a Astro por <a href="#" class="underline">@angelsbcode</a>.
-  </p>
+  
+  <div class="anim-fade-in-delayed">
+    <h1 class="text-5xl font-bold tracking-wide">Stellar</h1>
+    <p class="text-slate-300 mt-4 max-w-xl mx-auto opacity-80">
+      Just another free, fully responsive site template built by <a href="#" class="underline hover:text-white">@ajlkn</a>.<br/>
+      Pero modificado y pasado a Astro por <a href="#" class="underline hover:text-white">@angelsbcode</a>.
+    </p>
+  </div>
 </header>
+
+<style>
+  /* Animaciones nativas muy ligeras */
+  .anim-fade-in {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+  
+  .anim-fade-in-delayed {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeIn 0.8s ease-out 0.4s forwards; /* 0.4s de retraso */
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

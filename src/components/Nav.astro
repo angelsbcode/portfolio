@@ -1,14 +1,31 @@
 ---
 ---
-<nav id="nav" class="sticky top-0 bg-slate-800 z-50 py-4 shadow-xl">
-  <ul class="flex justify-center gap-8">
-    <li><a href="#intro" class="hover:text-blue-400">Introduction</a></li>
-    <li><a href="#first" class="hover:text-blue-400">First Section</a></li>
-    <li><a href="#second" class="hover:text-blue-400">Second Section</a></li>
-    <li><a href="#cta" class="hover:text-blue-400">Get Started</a></li>
+<nav id="nav" class="sticky top-0 bg-slate-50 z-50 py-8 px-4 rounded-t-lg border-b border-slate-200 transition-all duration-300 ease-in-out">
+  <ul class="flex flex-wrap justify-center gap-2 md:gap-6 text-sm font-medium text-slate-500">
+    <li><a href="#intro" class="nav-link px-4 py-2 rounded-full bg-white text-slate-800 shadow-sm transition-colors">Introduction</a></li>
+    <li><a href="#first" class="nav-link px-4 py-2 rounded-full hover:bg-slate-200 transition-colors">First Section</a></li>
+    <li><a href="#second" class="nav-link px-4 py-2 rounded-full hover:bg-slate-200 transition-colors">Second Section</a></li>
+    <li><a href="#cta" class="nav-link px-4 py-2 rounded-full hover:bg-slate-200 transition-colors">Get Started</a></li>
   </ul>
 </nav>
 
 <script>
-
+  // Este script se ejecuta en el cliente para controlar el scroll
+  const nav = document.getElementById('nav');
+  
+  window.addEventListener('scroll', () => {
+    // Si hacemos scroll más de 100px (cuando pasamos el header)
+    if (window.scrollY > 100) {
+      // Quitamos el padding grande y ponemos uno pequeño (se "encoge")
+      nav.classList.remove('py-8');
+      nav.classList.add('py-4');
+      // Opcional: hacer el fondo un poco transparente al bajar
+      nav.classList.add('bg-slate-50/95', 'backdrop-blur-sm');
+    } else {
+      // Volvemos a la normalidad cuando subimos del todo
+      nav.classList.add('py-8');
+      nav.classList.remove('py-4');
+      nav.classList.remove('bg-slate-50/95', 'backdrop-blur-sm');
+    }
+  });
 </script>

@@ -1,15 +1,16 @@
 ---
+// src/layouts/BaseLayout.astro
 import '../styles/global.css';
 const { title } = Astro.props;
 ---
-<html lang="es">
+<html lang="es" class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="/css/fontawesome-all.min.css" />
     <title>{title}</title>
-    </head>
-  <body class="bg-slate-900 text-white"> <div id="wrapper" class="max-w-6xl mx-auto px-4">
-      <slot /> </div>
+  </head>
+  <body class="bg-[#5e4b6c] bg-linear-to-br from-[#5e4b6c] via-[#8e5a7d] to-[#d46a7e] min-h-screen text-slate-400 font-light selection:bg-pink-500/30">
+      <slot /> 
   </body>
 </html>

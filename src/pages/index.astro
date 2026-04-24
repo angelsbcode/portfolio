@@ -11,64 +11,67 @@ import fotoIntro from '../assets/images/pic01.jpg';
 ---
 
 <BaseLayout title="Stellar by HTML5 UP - Astro Version">
-  <div id="wrapper" class="max-w-5xl mx-auto px-6 py-12 text-slate-300">
+  <div class="max-w-5xl mx-auto px-4 py-12">
     
     <Header />
-    <Nav />
 
-    <main id="main" class="bg-slate-800 rounded-lg p-8 md:p-16 mt-8 shadow-2xl">
+    <div class="bg-white rounded-lg shadow-2xl overflow-hidden mt-8">
+      
+      <Nav />
 
-      <Section id="intro">
-        <div class="flex flex-col-reverse md:flex-row items-center gap-12">
-          <div class="flex-1">
-            <header class="mb-6">
-              <h2 class="text-3xl font-bold text-white">Ipsum sed adipiscing</h2>
-            </header>
-            <p class="leading-relaxed mb-8">
-              Sed lorem ipsum dolor sit amet nullam consequat feugiat consequat magna
-              adipiscing magna etiam amet veroeros. Lorem ipsum dolor tempus sit cursus.
-              Tempus nisl et nullam lorem ipsum dolor sit amet aliquam.
-            </p>
-            <ul class="flex gap-4">
-              <li><a href="#" class="px-6 py-3 bg-slate-700 text-white rounded hover:bg-blue-600 transition-colors">Learn More</a></li>
-            </ul>
+      <main id="main" class="text-slate-500">
+
+        <Section id="intro" class="p-8 md:p-16 border-b border-slate-100">
+          <div class="flex flex-col-reverse md:flex-row items-center gap-12">
+            <div class="flex-1 text-left">
+              <header class="mb-6 relative">
+                <h2 class="text-4xl font-extralight text-slate-800 mb-4">Ipsum sed adipiscing</h2>
+                <div class="w-32 h-0.5 bg-linear-to-r from-pink-400 to-blue-400"></div>
+              </header>
+              <p class="leading-relaxed mb-8 text-lg">
+                Sed lorem ipsum dolor sit amet nullam consequat feugiat consequat magna
+                adipiscing magna etiam amet veroeros.
+              </p>
+              <ul class="flex gap-4">
+                <li><a href="#" class="px-8 py-3 border border-slate-200 text-slate-500 rounded-full hover:border-pink-400 hover:text-pink-400 transition-all font-medium">Learn More</a></li>
+              </ul>
+            </div>
+            <div class="w-full md:w-1/3 flex justify-center">
+              <Image 
+                src={fotoIntro} 
+                alt="Intro" 
+                class="w-64 h-64 object-cover rounded-full border-10 border-slate-50 shadow-sm" 
+              />
+            </div>
           </div>
-          <div class="w-full md:w-1/3 flex justify-center">
-            <Image 
-              src={fotoIntro} 
-              alt="Intro" 
-              class="w-64 h-64 object-cover rounded-full border-4 border-slate-700 shadow-lg" 
-            />
-          </div>
-        </div>
-      </Section>
+        </Section>
 
-      <Section id="first" isSpecial={true}>
-        <header class="mb-12">
-          <h2 class="text-3xl font-bold text-white">Magna veroeros</h2>
-        </header>
+        <Section id="first" class="p-8 md:p-16 text-center border-b border-slate-100">
+          <header class="mb-12">
+            <h2 class="text-3xl font-bold text-slate-800">Magna veroeros</h2>
+          </header>
         
         <ul class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-			<li class="p-6">
-				<span class="inline-flex items-center justify-center w-40 h-40 bg-blue-500 rounded-full mb-6 mx-auto border-[1px] border-slate-700">
+			<li class="flex flex-col items-center">
+				<span class="inline-flex items-center justify-center w-32 h-32 bg-blue-500 rounded-full mb-6 border border-slate-100 shadow-inner">
 				<i class="fas fa-code text-6xl text-white leading-none"></i>
-				</span>
+				</span>	
 				<h3 class="text-xl font-bold text-white mb-4">Ipsum consequat</h3>
 				<p class="text-sm leading-relaxed">Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.</p>
 			</li>
 
-			<li class="p-6">
-				<span class="inline-flex items-center justify-center w-40 h-40 bg-purple-500 rounded-full mb-6 mx-auto border-[1px] border-slate-700">
-				<i class="fas fa-copy text-6xl text-white leading-none"></i>
-				</span>
+      <li class="p-6">
+        <span class="inline-flex items-center justify-center w-40 h-40 bg-purple-500 rounded-full mb-6 mx-auto border border-slate-700">
+        <i class="fas fa-copy text-6xl text-white leading-none"></i>
+        </span>
 				<h3 class="text-xl font-bold text-white mb-4">Amed sed feugiat</h3>
 				<p class="text-sm leading-relaxed">Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.</p>
 			</li>
 
-			<li class="p-6">
-				<span class="inline-flex items-center justify-center w-40 h-40 bg-pink-500 rounded-full mb-6 mx-auto border-[1px] border-slate-700">
-				<i class="fas fa-gem text-6xl text-white leading-none"></i>
-				</span>
+      <li class="p-6">
+        <span class="inline-flex items-center justify-center w-40 h-40 bg-pink-500 rounded-full mb-6 mx-auto border border-slate-700">
+        <i class="fas fa-gem text-6xl text-white leading-none"></i>
+        </span>
 				<h3 class="text-xl font-bold text-white mb-4">Dolor nullam</h3>
 				<p class="text-sm leading-relaxed">Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.</p>
 			</li>
