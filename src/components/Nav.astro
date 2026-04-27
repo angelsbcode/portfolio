@@ -1,31 +1,48 @@
 ---
+// src/components/Nav.astro
 ---
-<nav id="nav" class="sticky top-0 bg-slate-50 z-50 py-8 px-4 rounded-t-lg border-b border-slate-200 transition-all duration-300 ease-in-out">
-  <ul class="flex flex-wrap justify-center gap-2 md:gap-6 text-sm font-medium text-slate-500">
-    <li><a href="#intro" class="nav-link px-4 py-2 rounded-full bg-white text-slate-800 shadow-sm transition-colors">Introduction</a></li>
-    <li><a href="#first" class="nav-link px-4 py-2 rounded-full hover:bg-slate-200 transition-colors">First Section</a></li>
-    <li><a href="#second" class="nav-link px-4 py-2 rounded-full hover:bg-slate-200 transition-colors">Second Section</a></li>
-    <li><a href="#cta" class="nav-link px-4 py-2 rounded-full hover:bg-slate-200 transition-colors">Get Started</a></li>
+<nav id="nav" class="sticky top-0 z-50 bg-[#f7f7f7] rounded-t-md transition-all duration-200 ease-in-out py-6 text-center">
+  <ul id="nav-list" class="flex flex-wrap justify-center gap-2 m-0 p-0 list-none">
+    <li>
+      <a href="#intro" class="nav-link inline-block h-10 leading-10 px-5 rounded-lg transition-all duration-200 text-slate-500 hover:bg-slate-200/50 hover:text-slate-700 text-[1rem]">Introduction</a>
+    </li>
+    <li>
+      <a href="#first" class="nav-link inline-block h-10 leading-10 px-5 rounded-lg transition-all duration-200 text-slate-500 hover:bg-slate-200/50 hover:text-slate-700 text-[1rem]">First Section</a>
+    </li>
+    <li>
+      <a href="#second" class="nav-link inline-block h-10 leading-10 px-5 rounded-lg transition-all duration-200 text-slate-500 hover:bg-slate-200/50 hover:text-slate-700 text-[1rem]">Second Section</a>
+    </li>
+    <li>
+      <a href="#cta" class="nav-link inline-block h-10 leading-10 px-5 rounded-lg transition-all duration-200 text-slate-500 hover:bg-slate-200/50 hover:text-slate-700 text-[1rem]">Get Started</a>
+    </li>
   </ul>
 </nav>
 
 <script>
-  // Este script se ejecuta en el cliente para controlar el scroll
   const nav = document.getElementById('nav');
-  
+  const navLinks = document.querySelectorAll('.nav-link');
+
   window.addEventListener('scroll', () => {
-    // Si hacemos scroll más de 100px (cuando pasamos el header)
-    if (window.scrollY > 100) {
-      // Quitamos el padding grande y ponemos uno pequeño (se "encoge")
-      nav.classList.remove('py-8');
-      nav.classList.add('py-4');
-      // Opcional: hacer el fondo un poco transparente al bajar
-      nav.classList.add('bg-slate-50/95', 'backdrop-blur-sm');
+    // Cuando el nav toca el techo (top <= 0)
+    if (nav.getBoundingClientRect().top <= 0) {
+      // Aplicamos el equivalente a la clase .alt de Stellar
+      nav.classList.remove('py-6', 'rounded-t-md', 'bg-[#f7f7f7]');
+      nav.classList.add('py-2', 'rounded-none', 'bg-[#f7f7f7]/95', 'shadow-md');
+      
+      // Encogemos un poco la fuente como dice el CSS original de .alt
+      navLinks.forEach(link => {
+        link.classList.remove('text-[1rem]');
+        link.classList.add('text-[0.9em]');
+      });
     } else {
-      // Volvemos a la normalidad cuando subimos del todo
-      nav.classList.add('py-8');
-      nav.classList.remove('py-4');
-      nav.classList.remove('bg-slate-50/95', 'backdrop-blur-sm');
+      // Regresamos al estado normal
+      nav.classList.add('py-6', 'rounded-t-md', 'bg-[#f7f7f7]');
+      nav.classList.remove('py-2', 'rounded-none', 'bg-[#f7f7f7]/95', 'shadow-md');
+      
+      navLinks.forEach(link => {
+        link.classList.add('text-[1rem]');
+        link.classList.remove('text-[0.9em]');
+      });
     }
   });
 </script>
