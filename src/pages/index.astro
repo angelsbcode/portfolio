@@ -5,140 +5,86 @@ import Header from '../components/Header.astro';
 import Nav from '../components/Nav.astro';
 import Section from '../components/Section.astro';
 import Footer from '../components/Footer.astro';
-
 import { Image } from 'astro:assets';
 import fotoIntro from '../assets/images/pic01.jpg';
 ---
 
 <BaseLayout title="Stellar by HTML5 UP - Astro Version">
-  <div class="max-w-5xl mx-auto px-4 py-12">
+  <div id="wrapper" class="w-[64em] max-w-[calc(100%-4em)] mx-auto py-[4em] flex flex-col">
     
     <Header />
 
-    <div class="bg-white rounded-lg shadow-2xl overflow-hidden mt-8">
-      
-      <Nav />
+    <div id="nav-sentinel" class="w-full h-px invisible"></div>
 
-      <main id="main" class="text-slate-500">
+    <Nav />
 
-        <Section id="intro" class="p-8 md:p-16 border-b border-slate-100">
-          <div class="flex flex-col-reverse md:flex-row items-center gap-12">
-            <div class="flex-1 text-left">
-              <header class="mb-6 relative">
-                <h2 class="text-4xl font-extralight text-slate-800 mb-4">Ipsum sed adipiscing</h2>
-                <div class="w-32 h-0.5 bg-linear-to-r from-pink-400 to-blue-400"></div>
-              </header>
-              <p class="leading-relaxed mb-8 text-lg">
-                Sed lorem ipsum dolor sit amet nullam consequat feugiat consequat magna
-                adipiscing magna etiam amet veroeros.
-              </p>
-              <ul class="flex gap-4">
-                <li><a href="#" class="px-8 py-3 border border-slate-200 text-slate-500 rounded-full hover:border-pink-400 hover:text-pink-400 transition-all font-medium">Learn More</a></li>
-              </ul>
-            </div>
-            <div class="w-full md:w-1/3 flex justify-center">
-              <Image 
-                src={fotoIntro} 
-                alt="Intro" 
-                class="w-64 h-64 object-cover rounded-full border-10 border-slate-50 shadow-sm" 
-              />
-            </div>
+    <main id="main" class="bg-white rounded-b-[0.25em] shadow-xl">
+
+      <Section id="intro" class="p-[4em] md:p-[5em] border-b border-[#dddddd]">
+        <div class="flex flex-col-reverse md:flex-row items-center gap-[4em]">
+          <div class="flex-1 text-left">
+            <header class="mb-[1.5em] relative">
+              <h2 class="text-[2.25em] font-light text-[#636363] leading-[1.3] mb-4">Ipsum sed adipiscing</h2>
+              <div class="w-[3em] h-[2px] bg-gradient-to-r from-pink-400 to-blue-400"></div>
+            </header>
+            <p class="mb-[2em] text-[1em]">
+              Sed lorem ipsum dolor sit amet nullam consequat feugiat consequat magna
+              adipiscing magna etiam amet veroeros. Lorem ipsum dolor tempus sit cursus.
+              Tempus nisl et nullam lorem ipsum dolor sit amet aliquam.
+            </p>
+            <ul class="flex gap-4 m-0 p-0 list-none">
+              <li><a href="#" class="inline-block px-[2em] h-[3em] leading-[3em] border border-[#dddddd] rounded-[8px] text-[#636363] hover:text-pink-400 hover:border-pink-400 transition-colors tracking-wide">Learn More</a></li>
+            </ul>
           </div>
-        </Section>
+          <div class="w-full md:w-5/12 flex justify-center">
+            <Image 
+              src={fotoIntro} 
+              alt="Intro" 
+              class="w-full max-w-[18em] aspect-square object-cover rounded-full border-[0.5em] border-[rgba(222,222,222,0.25)] shadow-sm" 
+            />
+          </div>
+        </div>
+      </Section>
 
-        <Section id="first" class="p-8 md:p-16 text-center border-b border-slate-100">
-          <header class="mb-12">
-            <h2 class="text-3xl font-bold text-slate-800">Magna veroeros</h2>
-          </header>
+      <Section id="first" class="p-8 md:p-16 text-center border-b border-slate-100 bg-slate-50/50">
+        <header class="mb-12">
+          <h2 class="text-3xl font-bold text-slate-800">Magna veroeros</h2>
+        </header>
         
         <ul class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-			<li class="flex flex-col items-center">
-				<span class="inline-flex items-center justify-center w-32 h-32 bg-blue-500 rounded-full mb-6 border border-slate-100 shadow-inner">
-				<i class="fas fa-code text-6xl text-white leading-none"></i>
-				</span>	
-				<h3 class="text-xl font-bold text-white mb-4">Ipsum consequat</h3>
-				<p class="text-sm leading-relaxed">Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.</p>
-			</li>
-
-      <li class="p-6">
-        <span class="inline-flex items-center justify-center w-40 h-40 bg-purple-500 rounded-full mb-6 mx-auto border border-slate-700">
-        <i class="fas fa-copy text-6xl text-white leading-none"></i>
-        </span>
-				<h3 class="text-xl font-bold text-white mb-4">Amed sed feugiat</h3>
-				<p class="text-sm leading-relaxed">Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.</p>
-			</li>
-
-      <li class="p-6">
-        <span class="inline-flex items-center justify-center w-40 h-40 bg-pink-500 rounded-full mb-6 mx-auto border border-slate-700">
-        <i class="fas fa-gem text-6xl text-white leading-none"></i>
-        </span>
-				<h3 class="text-xl font-bold text-white mb-4">Dolor nullam</h3>
-				<p class="text-sm leading-relaxed">Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.</p>
-			</li>
-		</ul>
-        
-        <footer class="flex justify-center">
-          <a href="#" class="px-6 py-3 border border-slate-600 rounded hover:bg-slate-700 hover:text-white transition-colors">Learn More</a>
-        </footer>
-      </Section>
-
-      <Section id="second" isSpecial={true}>
-        <header class="mb-12 max-w-2xl mx-auto">
-          <h2 class="text-3xl font-bold text-white mb-4">Ipsum consequat</h2>
-          <p class="leading-relaxed">Donec imperdiet consequat consequat. Suspendisse feugiat congue posuere. Nulla massa urna, fermentum eget quam aliquet.</p>
-        </header>
-
-        <ul class="flex flex-wrap justify-center gap-4 mb-12">
-          <li class="flex flex-col items-center p-6 border border-slate-700 rounded-lg w-36">
-            <span class="text-3xl text-blue-400 mb-2"><i class="fas fa-code-branch"></i></span>
-            <strong class="text-2xl text-white font-bold">5,120</strong> 
-            <span class="text-sm uppercase tracking-wider mt-1">Etiam</span>
+          <li class="flex flex-col items-center">
+            <span class="inline-flex items-center justify-center w-36 h-36 bg-blue-500 rounded-full mb-6 border border-slate-200 shadow-sm">
+              <i class="fas fa-code text-6xl text-white leading-none"></i>
+            </span> 
+            <h3 class="text-xl font-bold text-slate-800 mb-4">Ipsum consequat</h3>
+            <p class="text-[0.95rem] leading-relaxed">Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.</p>
           </li>
-          <li class="flex flex-col items-center p-6 border border-slate-700 rounded-lg w-36">
-            <span class="text-3xl text-purple-400 mb-2"><i class="fas fa-folder-open"></i></span>
-            <strong class="text-2xl text-white font-bold">8,192</strong> 
-            <span class="text-sm uppercase tracking-wider mt-1">Magna</span>
+
+          <li class="flex flex-col items-center">
+            <span class="inline-flex items-center justify-center w-36 h-36 bg-purple-500 rounded-full mb-6 border border-slate-200 shadow-sm">
+              <i class="fas fa-copy text-6xl text-white leading-none"></i>
+            </span>
+            <h3 class="text-xl font-bold text-slate-800 mb-4">Amed sed feugiat</h3>
+            <p class="text-[0.95rem] leading-relaxed">Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.</p>
           </li>
-          <li class="flex flex-col items-center p-6 border border-slate-700 rounded-lg w-36">
-            <span class="text-3xl text-green-400 mb-2"><i class="fas fa-signal"></i></span>
-            <strong class="text-2xl text-white font-bold">2,048</strong> 
-            <span class="text-sm uppercase tracking-wider mt-1">Tempus</span>
-          </li>
-          <li class="flex flex-col items-center p-6 border border-slate-700 rounded-lg w-36">
-            <span class="text-3xl text-red-400 mb-2"><i class="fas fa-laptop"></i></span>
-            <strong class="text-2xl text-white font-bold">4,096</strong> 
-            <span class="text-sm uppercase tracking-wider mt-1">Aliquam</span>
-          </li>
-          <li class="flex flex-col items-center p-6 border border-slate-700 rounded-lg w-36">
-            <span class="text-3xl text-pink-400 mb-2"><i class="fas fa-gem"></i></span>
-            <strong class="text-2xl text-white font-bold">1,024</strong> 
-            <span class="text-sm uppercase tracking-wider mt-1">Nullam</span>
+
+          <li class="flex flex-col items-center">
+            <span class="inline-flex items-center justify-center w-36 h-36 bg-pink-500 rounded-full mb-6 border border-slate-200 shadow-sm">
+              <i class="fas fa-gem text-6xl text-white leading-none"></i>
+            </span>
+            <h3 class="text-xl font-bold text-slate-800 mb-4">Dolor nullam</h3>
+            <p class="text-[0.95rem] leading-relaxed">Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.</p>
           </li>
         </ul>
-
-        <p class="text-left leading-relaxed mb-12">
-          Nam elementum nisl et mi a commodo porttitor. Morbi sit amet nisl eu arcu faucibus hendrerit vel a risus. Nam a orci mi, elementum ac arcu sit amet, fermentum pellentesque et purus. Integer maximus varius lorem, sed convallis diam accumsan sed. Etiam porttitor placerat sapien, sed eleifend a enim pulvinar faucibus semper quis ut arcu. Ut non nisl a mollis est efficitur vestibulum. Integer eget purus nec nulla mattis et accumsan ut magna libero.
-        </p>
-
-        <footer class="flex justify-center">
-          <a href="#" class="px-6 py-3 border border-slate-600 rounded hover:bg-slate-700 hover:text-white transition-colors">Learn More</a>
-        </footer>
-      </Section>
-
-      <Section id="cta" isSpecial={true}>
-        <header class="mb-12 max-w-2xl mx-auto border-none">
-          <h2 class="text-3xl font-bold text-white mb-4">Congue imperdiet</h2>
-          <p class="leading-relaxed">Donec imperdiet consequat consequat. Suspendisse feugiat congue posuere. Nulla massa urna, fermentum eget quam aliquet.</p>
-        </header>
         
-        <footer class="flex justify-center gap-4">
-          <a href="#" class="px-6 py-3 bg-blue-500 text-white font-bold rounded hover:bg-blue-600 transition-colors">Get Started</a>
-          <a href="#" class="px-6 py-3 border border-slate-600 rounded hover:bg-slate-700 hover:text-white transition-colors">Learn More</a>
+        <footer class="flex justify-center">
+          <a href="#" class="px-8 py-3 border border-slate-300 rounded-full text-slate-500 hover:text-pink-400 hover:border-pink-400 transition-colors">Learn More</a>
         </footer>
       </Section>
 
-    </main>
+      </main>
 
     <Footer />
+    
   </div>
 </BaseLayout>
