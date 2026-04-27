@@ -1,19 +1,19 @@
 ---
 // src/components/Nav.astro
 ---
-<nav id="nav" class="sticky top-0 z-50 bg-[#f7f7f7] rounded-t-md transition-all duration-200 ease-in-out py-6 text-center">
-  <ul id="nav-list" class="flex flex-wrap justify-center gap-2 m-0 p-0 list-none">
-    <li>
-      <a href="#intro" class="nav-link inline-block h-10 leading-10 px-5 rounded-lg transition-all duration-200 text-slate-500 hover:bg-slate-200/50 hover:text-slate-700 text-[1rem]">Introduction</a>
+<nav id="nav" class="absolute top-0 w-full bg-[#f7f7f7] rounded-t-[0.25em] transition-all duration-300 ease-in-out py-[1em] text-center">
+  <ul id="nav-list" class="flex flex-wrap justify-center m-0 p-0 list-none">
+    <li class="mx-[0.35em] inline-block">
+      <a href="#intro" class="nav-link inline-block h-[2.25em] leading-[2.25em] px-[1.25em] rounded-[8px] transition-all duration-300 hover:bg-[rgba(222,222,222,0.25)] text-[#636363] text-[1em]">Introduction</a>
     </li>
-    <li>
-      <a href="#first" class="nav-link inline-block h-10 leading-10 px-5 rounded-lg transition-all duration-200 text-slate-500 hover:bg-slate-200/50 hover:text-slate-700 text-[1rem]">First Section</a>
+    <li class="mx-[0.35em] inline-block">
+      <a href="#first" class="nav-link inline-block h-[2.25em] leading-[2.25em] px-[1.25em] rounded-[8px] transition-all duration-300 hover:bg-[rgba(222,222,222,0.25)] text-[#636363] text-[1em]">First Section</a>
     </li>
-    <li>
-      <a href="#second" class="nav-link inline-block h-10 leading-10 px-5 rounded-lg transition-all duration-200 text-slate-500 hover:bg-slate-200/50 hover:text-slate-700 text-[1rem]">Second Section</a>
+    <li class="mx-[0.35em] inline-block">
+      <a href="#second" class="nav-link inline-block h-[2.25em] leading-[2.25em] px-[1.25em] rounded-[8px] transition-all duration-300 hover:bg-[rgba(222,222,222,0.25)] text-[#636363] text-[1em]">Second Section</a>
     </li>
-    <li>
-      <a href="#cta" class="nav-link inline-block h-10 leading-10 px-5 rounded-lg transition-all duration-200 text-slate-500 hover:bg-slate-200/50 hover:text-slate-700 text-[1rem]">Get Started</a>
+    <li class="mx-[0.35em] inline-block">
+      <a href="#cta" class="nav-link inline-block h-[2.25em] leading-[2.25em] px-[1.25em] rounded-[8px] transition-all duration-300 hover:bg-[rgba(222,222,222,0.25)] text-[#636363] text-[1em]">Get Started</a>
     </li>
   </ul>
 </nav>
@@ -21,28 +21,37 @@
 <script>
   const nav = document.getElementById('nav');
   const navLinks = document.querySelectorAll('.nav-link');
+  // Usamos el centinela estático que ahora está FUERA del flujo del nav
+  const sentinel = document.getElementById('nav-sentinel');
 
-  window.addEventListener('scroll', () => {
-    // Cuando el nav toca el techo (top <= 0)
-    if (nav.getBoundingClientRect().top <= 0) {
-      // Aplicamos el equivalente a la clase .alt de Stellar
-      nav.classList.remove('py-6', 'rounded-t-md', 'bg-[#f7f7f7]');
-      nav.classList.add('py-2', 'rounded-none', 'bg-[#f7f7f7]/95', 'shadow-md');
-      
-      // Encogemos un poco la fuente como dice el CSS original de .alt
-      navLinks.forEach(link => {
-        link.classList.remove('text-[1rem]');
-        link.classList.add('text-[0.9em]');
-      });
-    } else {
-      // Regresamos al estado normal
-      nav.classList.add('py-6', 'rounded-t-md', 'bg-[#f7f7f7]');
-      nav.classList.remove('py-2', 'rounded-none', 'bg-[#f7f7f7]/95', 'shadow-md');
-      
-      navLinks.forEach(link => {
-        link.classList.add('text-[1rem]');
-        link.classList.remove('text-[0.9em]');
-      });
-    }
-  });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      // Si el centinela invisible cruza el techo de la pantalla
+      if (!entry.isIntersecting && entry.boundingClientRect.bottom <= 0) {
+        
+        // Efecto Shrink (Encoger)
+        nav.classList.remove('py-[1em]', 'rounded-t-[0.25em]', 'bg-[#f7f7f7]');
+        nav.classList.add('py-[0.5em]', 'rounded-none', 'bg-[rgba(247,247,247,0.95)]', 'shadow-md');
+        
+        navLinks.forEach(link => {
+          link.classList.remove('text-[1em]');
+          link.classList.add('text-[0.9em]');
+        });
+
+      } else {
+        
+        // Volver a la normalidad
+        nav.classList.add('py-[1em]', 'rounded-t-[0.25em]', 'bg-[#f7f7f7]');
+        nav.classList.remove('py-[0.5em]', 'rounded-none', 'bg-[rgba(247,247,247,0.95)]', 'shadow-md');
+        
+        navLinks.forEach(link => {
+          link.classList.add('text-[1em]');
+          link.classList.remove('text-[0.9em]');
+        });
+
+      }
+    });
+  }, { threshold: 0 });
+
+  if (sentinel) observer.observe(sentinel);
 </script>
